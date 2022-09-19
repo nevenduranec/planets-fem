@@ -1,0 +1,32 @@
+{
+    "name": "starter-kit-vanilla",
+    "private": true,
+    "version": "0.0.0",
+    "browserslist": [
+        "defaults"
+    ],
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.19.1",
+        "@babel/eslint-parser": "^7.19.1",
+        "@babel/preset-env": "^7.19.1",
+        "eslint": "8.22.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-plugin-html": "^7.1.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "postcss-preset-env": "^7.8.2",
+        "prettier": "^2.7.1",
+        "stylelint": "^14.12.0",
+        "stylelint-config-prettier": "^9.0.3",
+        "vite": "^3.1.0"
+    },
+    "dependencies": {
+        "blingblingjs": "^2.3.0",
+        "the-new-css-reset": "^1.7.3"
+    }
+}
