@@ -2,44 +2,40 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Vite App</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
+        <title>Product preview card component</title>
     </head>
-    <body class="prose">
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <h5>Heading 5</h5>
-        <h6>Heading 6</h6>
+    <body class="flex place-content-center place-items-center min-h-full p-5 bg-cream">
 
-        <p>Lorem ipsum</p>
 
-        <ul role="list">
-            <li>list</li>
-            <li>list 2</li>
-        </ul>
+        <div class="card flex flex-col rounded-[10px] overflow-hidden bg-white font-montserrat main:flex-row max-w-[780px]">
+            <picture class="block main:w-[50%]">
+                <source srcset="./public/image-product-desktop.jpg" media="(min-width: 686px)">
+                <img src="./public/image-product-mobile.jpg" alt="Gabrielle chanel paris parfume" class="object-cover main:h-full main:w-full">
+            </picture>
 
-        <ol role="list">
-            <li>list</li>
-            <li>list 2</li>
-        </ol>
+            <div class="p-9 main:w-[50%] flex flex-col">
+                <p class="text-blue-gray uppercase tracking-widest text-sm">Perfume</p>
+                <h1 class="text-blue font-fraunces text-4xl">Gabrielle Essence Eau De Parfum</h1>
 
-        <blockquote>
-            <p>It was as though the web design community were participating in a shared consensual hallucination. Rather than acknowledge the flexible nature of the browser window, they chose to settle on one set width as the ideal …even if that meant changing the ideal every few years.</p>
-            <p>Jeremy Keith - Resilient Web Design</p>
-        </blockquote>
+                <p class="text-blue-gray justify-self-center grow">A floral, solar and voluptuous interpretation composed by Olivier Polge, Perfumer-Creator for the House of CHANEL.</p>
 
-        <dl>
-            <dt>sdfsdf</dt>
-            <dd>sdfsdf</dd>
-        </dl>
+                <p class="flex items-center gap-5">
+                    <span class="font-fraunces text-3xl text-cyan">$149.99</span>
+                    <del class="text-blue-gray">$169.99</del>
+                </p>
 
-        <a href="#">Link</a>
-
-        <button type="button">Button</button>
-
+                <button type="button" class="flex items-center justify-center gap-5 rounded-[10px] w-full bg-cyan text-white p-3 transition-colors hover:bg-cyan-dark focus-visible:bg-cyan-dark">
+                    <svg width="15" height="16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="M14.383 10.388a2.397 2.397 0 0 0-1.518-2.222l1.494-5.593a.8.8 0 0 0-.144-.695.8.8 0 0 0-.631-.28H2.637L2.373.591A.8.8 0 0 0 1.598 0H0v1.598h.983l1.982 7.4a.8.8 0 0 0 .799.59h8.222a.8.8 0 0 1 0 1.599H1.598a.8.8 0 1 0 0 1.598h.943a2.397 2.397 0 1 0 4.507 0h1.885a2.397 2.397 0 1 0 4.331-.376 2.397 2.397 0 0 0 1.12-2.021ZM11.26 7.99H4.395L3.068 3.196h9.477L11.26 7.991Zm-6.465 6.392a.8.8 0 1 1 0-1.598.8.8 0 0 1 0 1.598Zm6.393 0a.8.8 0 1 1 0-1.598.8.8 0 0 1 0 1.598Z" fill="#FFF"/></svg>
+                    Add to Cart
+                </button>
+            </div>
+        </div>
 
 
         <script type="module" src="/src/main.js"></script>

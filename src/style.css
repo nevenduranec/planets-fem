@@ -1,23 +1,11 @@
-@import 'base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html {
     block-size: 100%;
-    color-scheme: light;
-
-    &[data-theme="dark"] {
-        color-scheme: dark;
-
-        @supports not (color-scheme: dark) {
-            background: var(--color-dark);
-        }
-    }
 }
 
-body {
-    background: var(--color-light);
-    color: var(--color-dark);
-    font-family: var(--font-base);
-    font-size: var(--size-step-1);
-    letter-spacing: var(--tracking);
-    line-height: 1.4
+.card > div > * + * {
+    margin-top: 1rem;
 }
