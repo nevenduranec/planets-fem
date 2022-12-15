@@ -5,7 +5,3 @@
 html {
     block-size: 100%;
 }
-
-.card > div > * + * {
-    margin-top: 1rem;
-}
