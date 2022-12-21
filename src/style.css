@@ -390,11 +390,7 @@ body {
             max-width: 60%;
         }
 
-        svg {
-            display: inline-block;
-            max-width: 100%;
-            height: auto;
-
+        img {
             &:nth-child(3) {
                 position: absolute;
                 top: 50%;
@@ -409,7 +405,7 @@ body {
             }
         }
 
-        img {
+        img:first-child {
             opacity: 0;
             position: absolute;
             bottom: 0;

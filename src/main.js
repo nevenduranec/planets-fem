@@ -117,11 +117,19 @@ let oldPlanet;
 })();
 
 const importGraphics = async (planet) => {
-    const svgs = [
-        await import(`/planet-${planet}.svg?raw`),
-        await import(`/planet-${planet}-internal.svg?raw`),
-    ];
+    const initial = document.createElement('img');
+    const internal = document.createElement('img');
     const image = document.createElement('img');
+
+    Object.assign(initial, {
+        ariaHidden: 'true',
+        src: `/planet-${planet}.svg`,
+    });
+
+    Object.assign(internal, {
+        ariaHidden: 'true',
+        src: `/planet-${planet}-internal.svg`,
+    });
 
     Object.assign(image, {
         ariaHidden: 'true',
@@ -130,30 +138,7 @@ const importGraphics = async (planet) => {
         src: `/geology-${planet}.png`,
     });
 
-    let finalFragments = [image];
-
-    for (let i = 0; i < 2; i++) {
-        let width = svgs[i].default.match(
-            /^<svg[^>]*width\s*=\s*\"?(\d+)\"?[^>]*>/
-        )[1];
-        let height = svgs[i].default.match(
-            /^<svg[^>]*height\s*=\s*\"?(\d+)\"?[^>]*>/
-        )[1];
-
-        const svg = svgs[i].default;
-        const fixedSvg = svg.replace(
-            '<svg ',
-            `<svg aria-hidden="true" focusable="false" viewbox="0 0 ${width} ${height}" `
-        );
-
-        const fragment = document.createDocumentFragment();
-        const logoFragment = document
-            .createRange()
-            .createContextualFragment(fixedSvg);
-
-        fragment.appendChild(logoFragment);
-        finalFragments.push(fragment);
-    }
+    let finalFragments = [image, initial, internal];
 
     graphic.replaceChildren(...finalFragments);
 };
@@ -181,7 +166,7 @@ const handleSections = (link, group, section) => {
         .find((section) => section.getAttribute('aria-selected') === 'true')
         .getAttribute('data-section');
 
-    const structureSvg = graphic.querySelector('svg:nth-child(3)');
+    const structureSvg = graphic.querySelector('img:nth-child(3)');
     const geologyImg = graphic.querySelector('img');
 
     if (structureSvg) {
