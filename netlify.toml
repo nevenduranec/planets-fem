@@ -1,4 +1,4 @@
 [[headers]]
 for = "/*.svg"
 [headers.values]
-Content-Type = "text/javascript"
+Content-Type = "text/plain"
