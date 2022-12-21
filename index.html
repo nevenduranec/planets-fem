@@ -9,13 +9,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=Spartan:wght@400;800&display=swap" rel="stylesheet">
         <title>Planets facts</title>
     </head>
-    <body class="min-h-full font-spartan bg-dark text-white">
+    <body class="min-h-full flex flex-col font-spartan bg-dark text-white">
+        <header class="px-6 py-4 md:py-0 md:pt-4 lg:py-0 border-b-[1px] border-white/20 flex justify-between relative md:flex-col md:items-center lg:flex-row">
+            <p class="font-antonio uppercase text-3xl">The planets</p>
 
-        <main class="grid min-h-screen items-start">
-            <header class="px-6 py-4 border-b-[1px] border-white/20 flex justify-between">
-                <h1 class="font-antonio uppercase text-3xl">The planets</h1>
-
-                <button type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Open/hide main navigation">
+            <nav class="flex" aria-label="Planets">
+                <button type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Open/hide main navigation" class="Hamby md:hidden">
                     <svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="17">
                         <g fill="currentColor" fill-rule="evenodd">
                             <path d="M0 0h24v3H0zM0 7h24v3H0zM0 14h24v3H0z"/>
@@ -23,9 +22,98 @@
                     </svg>
                 </button>
 
-                <ul id="main-navigation">
+                <ul id="main-navigation" class="-translate-x-full bg-dark absolute md:relative top-[calc(100%+1px)] md:top-0 left-0 p-4 h-[calc(100vh-80px)] md:translate-x-0 md:h-auto min-w-full flex flex-col md:min-w-0 md:flex-row md:pb-0 md:px-0 lg:p-0 z-10">
+                    <li><a data-planet="mercury" href="#planet=mercury&section=overview">Mercury</a></li>
+                    <li><a data-planet="venus" href="#planet=venus&section=overview">Venus</a></li>
+                    <li><a data-planet="earth" href="#planet=earth&section=overview">Earth</a></li>
+                    <li><a data-planet="mars" href="#planet=mars&section=overview">Mars</a></li>
+                    <li><a data-planet="jupiter" href="#planet=jupiter&section=overview">Jupiter</a></li>
+                    <li><a data-planet="saturn" href="#planet=saturn&section=overview">Saturn</a></li>
+                    <li><a data-planet="uranus" href="#planet=uranus&section=overview">Uranus</a></li>
+                    <li><a data-planet="neptune" href="#planet=neptune&section=overview">Neptune</a></li>
                 </ul>
-            </header>
+            </nav>
+        </header>
+
+        <main class="md:grid md:flex-grow md:grid-cols-main md:gap-5 Planet" data-planet="mercury">
+
+            <nav class="Planet-nav px-6 md:row-start-2 md:col-start-2 text-[10px] uppercase lg:items-start" aria-label="Planet info">
+                <ul class="flex text-center font-bold text-white/60 md:text-white md:flex-col md:text-left gap-2 flex-grow lg:mt-10">
+                    <li>
+                        <a data-section="overview" href="#"><span class="hidden md:inline text-white/80">01</span> Overview</a>
+                    </li>
+                    <li>
+                        <a data-section="structure" href="#"><span class="hidden md:inline text-white/80">02</span> <span><span class="hidden md:inline">Internal</span> Structure</span></a>
+                    </li>
+                    <li>
+                        <a data-section="geology" href="#"><span class="hidden md:inline text-white/80">03</span> <span>Surface <span class="hidden md:inline">geology</span></span></a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="Planet-graphic flex px-6 my-10 py-16 md:py-0 md:col-span-2 lg:col-span-1 lg:row-span-2 m-6">
+                <div class="Planet-graphicInner">
+                </div>
+            </div>
+
+            <div class="Planet-description px-6 flow lg:justify-end mb-10 md:mb-0 text-center md:text-left">
+                <h1 class="text-[40px] md:text-[48px] lg:text-[80px] font-antonio uppercase" data-name>Mercury</h1>
+                <div data-overview class="flow" id="sectionoverview">
+                    <p class="text-[11px] md:text-[14px] leading-6" data-content>Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the Sun's planets. Mercury is one of four terrestrial planets in the Solar System, and is a rocky body like Earth.</p>
+
+                    <p class="text-[11px] md:text-[14px]">
+                        Source:
+                        <a data-source href="https://en.wikipedia.org/wiki/Mercury_(planet)">
+                            <strong>Wikipedia</strong>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" aria-hidden="true" focusable="false"><path fill="#FFF" d="M11.34.66C10.9.22 10.37 0 9.75 0h-7.5C1.63 0 1.1.22.66.66.22 1.1 0 1.63 0 2.25v7.5c0 .62.22 1.15.66 1.59.44.44.97.66 1.59.66h7.5c.62 0 1.15-.22 1.59-.66.44-.44.66-.97.66-1.59v-7.5c0-.62-.22-1.15-.66-1.59zM10 6.25a.467.467 0 01-.305.46.544.544 0 01-.195.04.465.465 0 01-.352-.149L8.023 5.476 3.852 9.648a.481.481 0 01-.352.149.48.48 0 01-.352-.149l-.796-.797a.48.48 0 01-.149-.351.48.48 0 01.149-.352l4.172-4.172-1.125-1.125c-.162-.15-.198-.333-.11-.546A.467.467 0 015.75 2H9.5c.135 0 .253.05.352.148A.48.48 0 0110 2.5v3.75z" opacity=".5"/></svg>
+                        </a>
+                    </p>
+                </div>
+                <div data-structure class="flow" id="sectionstructure">
+                    <p class="text-[11px] md:text-[14px] leading-6" data-content>Mercury appears to have a solid silicate crust and mantle overlying a solid, iron sulfide outer core layer, a deeper liquid core layer, and a solid inner core. The planet's density is the second highest in the Solar System at 5.427 g/cm3 , only slightly less than Earth's density.</p>
+
+                    <p class="text-[11px] md:text-[14px]">
+                        Source:
+                        <a data-source href="https://en.wikipedia.org/wiki/Mercury_(planet)#Internal_structure">
+                            <strong>Wikipedia</strong>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" aria-hidden="true" focusable="false"><path fill="#FFF" d="M11.34.66C10.9.22 10.37 0 9.75 0h-7.5C1.63 0 1.1.22.66.66.22 1.1 0 1.63 0 2.25v7.5c0 .62.22 1.15.66 1.59.44.44.97.66 1.59.66h7.5c.62 0 1.15-.22 1.59-.66.44-.44.66-.97.66-1.59v-7.5c0-.62-.22-1.15-.66-1.59zM10 6.25a.467.467 0 01-.305.46.544.544 0 01-.195.04.465.465 0 01-.352-.149L8.023 5.476 3.852 9.648a.481.481 0 01-.352.149.48.48 0 01-.352-.149l-.796-.797a.48.48 0 01-.149-.351.48.48 0 01.149-.352l4.172-4.172-1.125-1.125c-.162-.15-.198-.333-.11-.546A.467.467 0 015.75 2H9.5c.135 0 .253.05.352.148A.48.48 0 0110 2.5v3.75z" opacity=".5"/></svg>
+                        </a>
+                    </p>
+                </div>
+                <div data-geology class="flow" id="sectiongeology">
+                    <p class="text-[11px] md:text-[14px] leading-6" data-content>Mercury's surface is similar in appearance to that of the Moon, showing extensive mare-like plains and heavy cratering, indicating that it has been geologically inactive for billions of years. It is more heterogeneous than either Mars's or the Moon’s.</p>
+
+                    <p class="text-[11px] md:text-[14px]">
+                        Source:
+                        <a data-source href="https://en.wikipedia.org/wiki/Mercury_(planet)#Surface_geology">
+                            <strong>Wikipedia</strong>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" aria-hidden="true" focusable="false"><path fill="#FFF" d="M11.34.66C10.9.22 10.37 0 9.75 0h-7.5C1.63 0 1.1.22.66.66.22 1.1 0 1.63 0 2.25v7.5c0 .62.22 1.15.66 1.59.44.44.97.66 1.59.66h7.5c.62 0 1.15-.22 1.59-.66.44-.44.66-.97.66-1.59v-7.5c0-.62-.22-1.15-.66-1.59zM10 6.25a.467.467 0 01-.305.46.544.544 0 01-.195.04.465.465 0 01-.352-.149L8.023 5.476 3.852 9.648a.481.481 0 01-.352.149.48.48 0 01-.352-.149l-.796-.797a.48.48 0 01-.149-.351.48.48 0 01.149-.352l4.172-4.172-1.125-1.125c-.162-.15-.198-.333-.11-.546A.467.467 0 015.75 2H9.5c.135 0 .253.05.352.148A.48.48 0 0110 2.5v3.75z" opacity=".5"/></svg>
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="Planet-facts px-6 md:col-span-2 mb-6">
+                <ul class="uppercase flex flex-col flex-grow gap-2 md:flex-row text-left justify-evenly">
+                    <li>
+                        <span>Rotation time</span>
+                        <span data-rotation>58.6 Days</span>
+                    </li>
+                    <li>
+                        <span>Revolution time</span>
+                        <span data-revolution>87.97 Days</span>
+                    </li>
+                    <li>
+                        <span>Radius</span>
+                        <span data-radius>2,439.7 km</span>
+                    </li>
+                    <li>
+                        <span>Average temp.</span>
+                        <span data-temperature>430°c</span>
+                    </li>
+                </ul>
+            </div>
+
         </main>
 
         <script type="module" src="/src/main.js"></script>

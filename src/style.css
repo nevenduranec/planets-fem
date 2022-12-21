@@ -5,3 +5,428 @@
 html {
     block-size: 100%;
 }
+
+body {
+    background-image: url(/background-stars.svg);
+    background-size: cover;
+}
+
+.Hamby[aria-expanded="true"] {
+    color: theme(colors.white/20%);
+}
+
+#main-navigation {
+    transition: transform 0.3s ease;
+
+    &.is-open {
+        transform: translate(0,0);
+    }
+
+    li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+        border-bottom: 1px solid theme(colors.white/10%);
+
+        &:last-child {
+            border: 0;
+        }
+
+        a {
+            position: relative;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+
+            padding: 1rem 0 1rem calc(1.25rem * 1.5);
+
+            transition: color 0.3s ease;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translate(0, -55%);
+                border-radius: 50%;
+                width: 1.25rem;
+                height: 1.25rem;
+                transition: transform 0.3s ease, clip-path 0.3s ease;
+
+                @media screen(md) {
+                    top: auto;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    border-radius: 0;
+                    width: calc(100% - 2rem);
+                    height: 1rem;
+                    clip-path: inset(100% 0 0 0);
+                }
+
+                @media screen(lg) {
+                    top: 0;
+                    bottom: auto;
+                    transform: translate(-50%, -100%);
+                    clip-path: inset(0 0 100% 0);
+                }
+            }
+
+            &[data-planet="mercury"] {
+                &::before {
+                    background-color: theme(colors.mercury);
+                }
+
+                &:hover,
+                &:focus-visible,
+                &.is-active {
+                    color: theme(colors.mercury);
+                }
+            }
+
+            &[data-planet="venus"] {
+                &::before {
+                    background-color: theme(colors.venus);
+                }
+
+                &:hover,
+                &:focus-visible,
+                &.is-active  {
+                    color: theme(colors.venus);
+                }
+            }
+
+            &[data-planet="earth"] {
+                &::before {
+                    background-color: theme(colors.earth);
+                }
+
+                &:hover,
+                &:focus-visible,
+                &.is-active  {
+                    color: theme(colors.earth);
+                }
+            }
+
+            &[data-planet="mars"] {
+                &::before {
+                    background-color: theme(colors.mars);
+                }
+
+                &:hover,
+                &:focus-visible,
+                &.is-active  {
+                    color: theme(colors.mars);
+                }
+            }
+
+            &[data-planet="jupiter"] {
+                &::before {
+                    background-color: theme(colors.jupiter);
+                }
+
+                &:hover,
+                &:focus-visible,
+                &.is-active  {
+                    color: theme(colors.jupiter);
+                }
+            }
+
+            &[data-planet="saturn"] {
+                &::before {
+                    background-color: theme(colors.saturn);
+                }
+
+                &:hover,
+                &:focus-visible,
+                &.is-active  {
+                    color: theme(colors.saturn);
+                }
+            }
+
+            &[data-planet="uranus"] {
+                &::before {
+                    background-color: theme(colors.uranus);
+                }
+
+
+                &:hover,
+                &:focus-visible,
+                &.is-active  {
+                    color: theme(colors.uranus);
+                }
+            }
+
+            &[data-planet="neptune"] {
+                &::before {
+                    background-color: theme(colors.neptune);
+                }
+
+                &:hover,
+                &:focus-visible,
+                &.is-active  {
+                    color: theme(colors.neptune);
+                }
+            }
+
+            &:hover,
+            &:focus-visible,
+            &.is-active {
+                color: theme(colors.white);
+
+                &::before {
+                    transform: translate(0, -55%) scale(1.25);
+
+                    @media screen(md) {
+                        transform: translate(-50%, 0);
+                        clip-path: inset(0 0 0 0);
+                    }
+
+                    @media screen(lg) {
+                        transform: translate(-50%, 0);
+                        clip-path: inset(0 0 0 0);
+                    }
+                }
+            }
+
+            @media screen(md) {
+                padding: 2rem 1rem;
+                font-size: 0.68rem;
+                color: theme(colors.white/80%);
+                flex-direction: row;
+            }
+        }
+
+        @media screen(md) {
+            border: 0;
+        }
+    }
+}
+
+.Planet {
+    width: 100%;
+    max-width: 1110px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen(md) {
+        > * {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &-nav {
+        border-bottom: 1px solid theme(colors.white/10%);
+
+        @media screen(md) {
+            border: 0;
+        }
+
+        .is-active {
+            color: theme(colors.white);
+        }
+
+        li {
+            flex-grow: 1;
+        }
+
+        a {
+            @apply block px-3 py-6 md:p-4 md:flex md:gap-4 md:border-[1px] border-white/20;
+            position: relative;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            line-height: 1;
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 1px);
+                width: calc(100% - 3rem);
+                height: 0.5rem;
+                clip-path: inset(100% 0 0 0);
+                transition: transform 0.3s ease, clip-path 0.3s ease;
+
+                @media screen(md) {
+                    display: none;
+                }
+            }
+
+            [data-planet="mercury"] & {
+                &[aria-selected="true"],
+                &::before {
+                    background-color: theme(colors.mercury);
+                    border-color: theme(colors.mercury);
+                }
+            }
+
+            [data-planet="venus"] & {
+                &[aria-selected="true"],
+                &::before {
+                    background-color: theme(colors.venus);
+                    border-color: theme(colors.venus);
+                }
+            }
+
+            [data-planet="earth"] & {
+                &[aria-selected="true"],
+                &::before {
+                    background-color: theme(colors.earth);
+                    border-color: theme(colors.earth);
+                }
+            }
+
+            [data-planet="mars"] & {
+                &[aria-selected="true"],
+                &::before {
+                    background-color: theme(colors.mars);
+                    border-color: theme(colors.mars);
+                }
+            }
+
+            [data-planet="jupiter"] & {
+                &[aria-selected="true"],
+                &::before {
+                    background-color: theme(colors.jupiter);
+                    border-color: theme(colors.jupiter);
+                }
+            }
+
+            [data-planet="saturn"] & {
+                &[aria-selected="true"],
+                &::before {
+                    background-color: theme(colors.saturn);
+                    border-color: theme(colors.saturn);
+                }
+            }
+
+            [data-planet="uranus"] & {
+                &[aria-selected="true"],
+                &::before {
+                    background-color: theme(colors.uranus);
+                    border-color: theme(colors.uranus);
+                }
+            }
+
+            [data-planet="neptune"] & {
+                &[aria-selected="true"],
+                &::before {
+                    background-color: theme(colors.neptune);
+                    border-color: theme(colors.neptune);
+                }
+            }
+
+            &:hover,
+            &:focus-visible,
+            &[aria-selected="true"] {
+                color: theme(colors.white);
+                background-color: theme(colors.white/20%);
+
+                &::before {
+                    clip-path: inset(0 0 0 0);
+                }
+            }
+
+            @media screen(max-md) {
+                background-color: transparent !important;
+            }
+        }
+    }
+
+    &-description {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        @media screen(md) {
+            > div {
+                min-height: 245px;
+            }
+        }
+
+        strong {
+            text-decoration: underline;
+        }
+
+        p:nth-child(2) {
+            color: theme(colors.white/60%);
+
+            svg {
+                display: inline-block;
+            }
+        }
+    }
+
+    &-facts {
+        li {
+            @apply border-[1px] border-white/20 p-4 flex flex-grow justify-between items-center md:flex-col md:items-start gap-2;
+
+            span:first-child {
+                @apply text-[8px] uppercase font-bold text-white/80 lg:text-[11px];
+            }
+
+            span:nth-child(2) {
+                @apply font-antonio font-medium text-xl md:text-2xl lg:text-4xl;
+            }
+        }
+    }
+
+    &-graphic {
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-graphicInner {
+        position: relative;
+
+        @media screen(md) {
+            max-width: 60%;
+        }
+
+        svg {
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+
+            &:nth-child(3) {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translate(0, -50%);
+                clip-path: circle(0);
+                transition: clip-path 0.8s ease-out;
+
+                &.is-active {
+                    clip-path: circle(100%);
+                }
+            }
+        }
+
+        img {
+            opacity: 0;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 60%);
+            z-index: 2;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+
+            &.is-active {
+                opacity: 1;
+                transform: translate(-50%, 50%);
+            }
+        }
+    }
+}
+
+.flow > * + * {
+    margin-top: 2rem;
+}
+
