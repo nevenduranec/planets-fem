@@ -1,4 +1,1 @@
-[[headers]]
-for = "/*.svg"
-[headers.values]
-Content-Type = "text/plain"
+
