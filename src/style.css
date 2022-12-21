@@ -369,7 +369,7 @@ body {
             @apply border-[1px] border-white/20 p-4 flex flex-grow justify-between items-center md:flex-col md:items-start gap-2;
 
             span:first-child {
-                @apply text-[8px] uppercase font-bold text-white/80 lg:text-[11px];
+                @apply text-[12px] uppercase font-bold text-white/80;
             }
 
             span:nth-child(2) {
